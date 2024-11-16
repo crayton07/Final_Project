@@ -1,5 +1,5 @@
 body {
-    background-color: #0b3d0b;
+    background-color: #3e413e;
     color: #fff;
     font-family: Arial, sans-serif;
     margin: 0;
@@ -10,14 +10,14 @@ body {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #1a3c1a;
+    background-color: #232623;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
     text-align: center;
-    color: #b3ffb3;
+    color: #de630b;
 }
 
 .question {
@@ -28,7 +28,7 @@ h1 {
 }
 
 .question.alternate {
-    background-color: #144d14;
+    background-color: #144d47;
 }
 
 label {
@@ -85,4 +85,28 @@ button {
 
 button:hover {
     background-color: #004d00;
+}
+
+
+.half-width-left-align {
+    width: 50%;
+    float: none; 
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-container {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
 }
