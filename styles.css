@@ -16,7 +16,8 @@ body {
 }
 
 .login-container {
-    max-width: 400px;
+    max-width: 800px;
+    min-width: 600px;
     margin: 0 auto;
     padding: 20px;
     background-color: #232623;
@@ -88,8 +89,8 @@ input[type="date"] {
 }
 
 button {
-    width: 10%;
-    height: 30px;
+    width: 30%;
+    height: 10%;
     margin-top: 10px;
     background-color: #d5a064;
     color: white;
