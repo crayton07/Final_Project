@@ -167,7 +167,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
+    font-size: .5rem;
     color: white;
     border-radius: 10px;
 }
@@ -181,6 +181,10 @@ a {
     background-color:  #333;
 }
 
+.pad-top{
+    padding-top: 1px;
+}
+
 footer {
     background-color: #333;
     text-align: center;
@@ -188,8 +192,4 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
-}
-
-.pad-top{
-    padding-top: 1px;
 }
