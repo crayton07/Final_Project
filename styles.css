@@ -168,10 +168,8 @@ a {
 }
 
 .box {
-    background-color: rgba(248, 110, 19, 0.688);
-}
+    background-color:  #333;
 
 .box-2 {
     flex: 1;
-    background-color: rgba(237, 18, 91, 0.688);
-}
+    background-color:  #333;
