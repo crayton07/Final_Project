@@ -33,7 +33,7 @@ try {
 $search_results = null;
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     $search_term = '%' . $_GET['search'] . '%';
-    $search_sql = 'SELECT id, imported, file_name, file_size FROM coffee_flavors WHERE file_name LIKE :search';
+    $search_sql = 'SELECT id, imported, file_name, file_size FROM pictures WHERE file_name LIKE :search';
     $search_stmt = $pdo->prepare($search_sql);
     $search_stmt->execute(['search' => $search_term]);
     $search_results = $search_stmt->fetchAll();
@@ -41,20 +41,20 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 
 // Handle form submissions
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['imported']) && isset($_POST['file_name']) && isset($_POST['file_size'])) {
+    if (isset($_POST['file_size']) && isset($_POST['file_name']) && isset($_POST['file_size'])) {
         // Insert new entry
-        $imported = htmlspecialchars($_POST['imported']);
+        $file_size = htmlspecialchars($_POST['file_size']);
         $name = htmlspecialchars($_POST['file_name']);
         $file_size = htmlspecialchars($_POST['file_size']);
         
-        $insert_sql = 'INSERT INTO coffee_flavors (imported, file_name, file_size) VALUES (:imported, :file_name, :file_size)';
+        $insert_sql = 'INSERT INTO pictures (file_size, file_name, file_size) VALUES (:file_size, :file_name, :file_size)';
         $stmt_insert = $pdo->prepare($insert_sql);
-        $stmt_insert->execute(['imported' => $imported, 'file_name' => $name, 'file_size' => $file_size]);
+        $stmt_insert->execute(['file_size' => $file_size, 'file_name' => $name, 'file_size' => $file_size]);
     } elseif (isset($_POST['delete_id'])) {
         // Delete an entry
         $delete_id = (int) $_POST['delete_id'];
         
-        $delete_sql = 'DELETE FROM coffee_flavors WHERE id = :id';
+        $delete_sql = 'DELETE FROM pictures WHERE id = :id';
         $stmt_delete = $pdo->prepare($delete_sql);
         $stmt_delete->execute(['id' => $delete_id]);
     }
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Set praised to yes
         $update_id = (int) $_POST['update_id'];
         
-        $update_sql = 'update coffee_flavors SET praised = "yes" WHERE id = :id';
+        $update_sql = 'update pictures SET praised = "yes" WHERE id = :id';
         $stmt_update = $pdo->prepare($update_sql);
         $stmt_update->execute(['id' => $update_id]);
     }
@@ -70,18 +70,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Set praised to yes
         $update_id = (int) $_POST['update_id'];
         
-        $update_sql = 'update coffee_flavors SET praised = "no" WHERE id = :id';
+        $update_sql = 'update pictures SET praised = "no" WHERE id = :id';
         $stmt_update = $pdo->prepare($update_sql);
         $stmt_update->execute(['id' => $update_id]);
     }
     
 }
 
-// Get all coffee_flavors for main table
-$sql = 'SELECT id, imported, name, file_size, praised FROM coffee_flavors WHERE praised = "no"';
+// Get all pictures for main table
+$sql = 'SELECT id, file_size, name, file_size, praised FROM pictures WHERE praised = "no"';
 $stmt = $pdo->query($sql);
 
-$sql2 = 'SELECT id, name, praised FROM coffee_flavors WHERE praised = "yes"';
+$sql2 = 'SELECT id, name, praised FROM pictures WHERE praised = "yes"';
 $statement = $pdo->query($sql2);
 ?>
 
@@ -116,7 +116,7 @@ $statement = $pdo->query($sql2);
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>imported</th>
+                                    <th>file_size</th>
                                     <th>file_name</th>
                                     <th>file_size</th>
                                     <th>Actions</th>
@@ -126,7 +126,7 @@ $statement = $pdo->query($sql2);
                                 <?php foreach ($search_results as $row): ?>
                                 <tr>
                                     <td><?php echo htmlspecialchars($row['id']); ?></td>
-                                    <td><?php echo htmlspecialchars($row['imported']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['file_size']); ?></td>
                                     <td><?php echo htmlspecialchars($row['file_name']); ?></td>
                                     <td><?php echo htmlspecialchars($row['file_size']); ?></td>
                                     <td>
@@ -140,7 +140,7 @@ $statement = $pdo->query($sql2);
                             </tbody>
                         </table>
                     <?php else: ?>
-                        <p>No coffee_flavors found matching your search.</p>
+                        <p>No pictures found matching your search.</p>
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
@@ -161,7 +161,7 @@ $statement = $pdo->query($sql2);
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>imported</th>
+                    <th>file_size</th>
                     <th>file_name</th>
                     <th>file_size</th>
                     <th>Temp Banned</th>
@@ -171,7 +171,7 @@ $statement = $pdo->query($sql2);
                 <?php while ($row = $stmt->fetch()): ?>
                 <tr>
                     <td><?php echo htmlspecialchars($row['id']); ?></td>
-                    <td><?php echo htmlspecialchars($row['imported']); ?></td>
+                    <td><?php echo htmlspecialchars($row['file_size']); ?></td>
                     <td><?php echo htmlspecialchars($row['file_name']); ?></td>
                     <td><?php echo htmlspecialchars($row['file_size']); ?></td>
                     <td><?php echo htmlspecialchars($row['praised']); ?></td>
@@ -229,8 +229,8 @@ $statement = $pdo->query($sql2);
     <div class="form-container">
         <h2>Add your favorite Coffee Today!!!</h2>
         <form action="index5.php" method="post">
-            <label for="imported">imported:</label>
-            <input type="text" id="imported" name="imported" required>
+            <label for="file_size">file_size:</label>
+            <input type="text" id="file_size" name="file_size" required>
             <br><br>
             <label for="file_name">file_name:</label>
             <input type="text" id="file_name" name="file_name" required>
