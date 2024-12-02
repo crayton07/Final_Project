@@ -11,7 +11,7 @@ if (!is_logged_in()) {
 }
 
 $host = 'db'; 
-$dbname = 'coffee_flavors'; 
+$dbname = 'final_project'; 
 $user = 'root'; 
 $pass = 'root';
 $charset = 'utf8mb4';
@@ -33,7 +33,7 @@ try {
 $search_results = null;
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     $search_term = '%' . $_GET['search'] . '%';
-    $search_sql = 'SELECT id, imported, name, distributer FROM coffee_flavors WHERE name LIKE :search';
+    $search_sql = 'SELECT id, imported, file_name, file_size FROM coffee_flavors WHERE file_name LIKE :search';
     $search_stmt = $pdo->prepare($search_sql);
     $search_stmt->execute(['search' => $search_term]);
     $search_results = $search_stmt->fetchAll();
@@ -41,15 +41,15 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 
 // Handle form submissions
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['imported']) && isset($_POST['name']) && isset($_POST['distributer'])) {
+    if (isset($_POST['imported']) && isset($_POST['file_name']) && isset($_POST['file_size'])) {
         // Insert new entry
         $imported = htmlspecialchars($_POST['imported']);
-        $name = htmlspecialchars($_POST['name']);
-        $distributer = htmlspecialchars($_POST['distributer']);
+        $name = htmlspecialchars($_POST['file_name']);
+        $file_size = htmlspecialchars($_POST['file_size']);
         
-        $insert_sql = 'INSERT INTO coffee_flavors (imported, name, distributer) VALUES (:imported, :name, :distributer)';
+        $insert_sql = 'INSERT INTO coffee_flavors (imported, file_name, file_size) VALUES (:imported, :file_name, :file_size)';
         $stmt_insert = $pdo->prepare($insert_sql);
-        $stmt_insert->execute(['imported' => $imported, 'name' => $name, 'distributer' => $distributer]);
+        $stmt_insert->execute(['imported' => $imported, 'file_name' => $name, 'file_size' => $file_size]);
     } elseif (isset($_POST['delete_id'])) {
         // Delete an entry
         $delete_id = (int) $_POST['delete_id'];
@@ -59,18 +59,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt_delete->execute(['id' => $delete_id]);
     }
     elseif (isset($_POST['out_of_stock'])) {
-        // Set Temp_ban to yes
+        // Set praised to yes
         $update_id = (int) $_POST['update_id'];
         
-        $update_sql = 'update coffee_flavors SET temp_ban = "yes" WHERE id = :id';
+        $update_sql = 'update coffee_flavors SET praised = "yes" WHERE id = :id';
         $stmt_update = $pdo->prepare($update_sql);
         $stmt_update->execute(['id' => $update_id]);
     }
     elseif (isset($_POST['restore'])) {
-        // Set Temp_ban to yes
+        // Set praised to yes
         $update_id = (int) $_POST['update_id'];
         
-        $update_sql = 'update coffee_flavors SET temp_ban = "no" WHERE id = :id';
+        $update_sql = 'update coffee_flavors SET praised = "no" WHERE id = :id';
         $stmt_update = $pdo->prepare($update_sql);
         $stmt_update->execute(['id' => $update_id]);
     }
@@ -78,10 +78,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Get all coffee_flavors for main table
-$sql = 'SELECT id, imported, name, distributer, temp_ban FROM coffee_flavors WHERE temp_ban = "no"';
+$sql = 'SELECT id, imported, name, file_size, praised FROM coffee_flavors WHERE praised = "no"';
 $stmt = $pdo->query($sql);
 
-$sql2 = 'SELECT id, name, temp_ban FROM coffee_flavors WHERE temp_ban = "yes"';
+$sql2 = 'SELECT id, name, praised FROM coffee_flavors WHERE praised = "yes"';
 $statement = $pdo->query($sql2);
 ?>
 
@@ -117,8 +117,8 @@ $statement = $pdo->query($sql2);
                                 <tr>
                                     <th>ID</th>
                                     <th>imported</th>
-                                    <th>name</th>
-                                    <th>distributer</th>
+                                    <th>file_name</th>
+                                    <th>file_size</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -127,8 +127,8 @@ $statement = $pdo->query($sql2);
                                 <tr>
                                     <td><?php echo htmlspecialchars($row['id']); ?></td>
                                     <td><?php echo htmlspecialchars($row['imported']); ?></td>
-                                    <td><?php echo htmlspecialchars($row['name']); ?></td>
-                                    <td><?php echo htmlspecialchars($row['distributer']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['file_name']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['file_size']); ?></td>
                                     <td>
                                         <form action="index5.php" method="post" style="display:inline;">
                                             <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
@@ -162,8 +162,8 @@ $statement = $pdo->query($sql2);
                 <tr>
                     <th>ID</th>
                     <th>imported</th>
-                    <th>name</th>
-                    <th>distributer</th>
+                    <th>file_name</th>
+                    <th>file_size</th>
                     <th>Temp Banned</th>
                 </tr>
             </thead>
@@ -172,9 +172,9 @@ $statement = $pdo->query($sql2);
                 <tr>
                     <td><?php echo htmlspecialchars($row['id']); ?></td>
                     <td><?php echo htmlspecialchars($row['imported']); ?></td>
-                    <td><?php echo htmlspecialchars($row['name']); ?></td>
-                    <td><?php echo htmlspecialchars($row['distributer']); ?></td>
-                    <td><?php echo htmlspecialchars($row['temp_ban']); ?></td>
+                    <td><?php echo htmlspecialchars($row['file_name']); ?></td>
+                    <td><?php echo htmlspecialchars($row['file_size']); ?></td>
+                    <td><?php echo htmlspecialchars($row['praised']); ?></td>
                     <td>
                         <form action="index5.php" method="post" style="display:inline;">
                             <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
@@ -211,8 +211,8 @@ $statement = $pdo->query($sql2);
                 <?php while ($row = $statement->fetch()): ?>
                 <tr>
                     <td><?php echo htmlspecialchars($row['id']); ?></td>
-                    <td><?php echo htmlspecialchars($row['name']); ?></td>
-                    <td><?php echo htmlspecialchars($row['temp_ban']); ?></td>
+                    <td><?php echo htmlspecialchars($row['file_name']); ?></td>
+                    <td><?php echo htmlspecialchars($row['praised']); ?></td>
                     <td>
                         <form action="index5.php" method="post" style="display:inline;">
                             <input type="hidden" name="update_id" value="<?php echo $row['id']; ?>">
@@ -232,11 +232,11 @@ $statement = $pdo->query($sql2);
             <label for="imported">imported:</label>
             <input type="text" id="imported" name="imported" required>
             <br><br>
-            <label for="name">name:</label>
-            <input type="text" id="name" name="name" required>
+            <label for="file_name">file_name:</label>
+            <input type="text" id="file_name" name="file_name" required>
             <br><br>
-            <label for="distributer">distributer:</label>
-            <input type="text" id="distributer" name="distributer" required>
+            <label for="file_size">file_size:</label>
+            <input type="text" id="file_size" name="file_size" required>
             <br><br>
             <input type="submit" value="Add Coffee">
         </form>
