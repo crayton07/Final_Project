@@ -116,6 +116,8 @@ button:hover {
 }
 
 th, td {
+    width: 400px;
+    height: 400px;
     padding: 8px;
     text-align: center;
 }
@@ -127,6 +129,7 @@ th, td {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: fit-content;
 }
 
 
@@ -165,8 +168,8 @@ a {
 }
 
 .box {
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     margin-top: 30px;
     display: flex;
     justify-content: center;
@@ -177,6 +180,10 @@ a {
 }
 
 .box {
+    background-color:  #232623;
+}
+
+.box-header{
     background-color:  #333;
 }
 
@@ -196,4 +203,16 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+
+main {
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #333;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    padding-bottom: 28px;
 }
