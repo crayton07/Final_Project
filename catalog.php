@@ -96,7 +96,7 @@ $statement = $pdo->query($sql2);
 <body>
     <!-- Hero Section -->
     <div class="hero-section">
-        <h1 class="hero-name">Betty's Coffee Inventory Check</h1>
+        <h1 class="hero-name">Betty's Coffee Inventory Check hi</h1>
         <p class="hero-subname">"Keep track of your stuff!!!"</p>
         
         <!-- Search moved to hero section -->
