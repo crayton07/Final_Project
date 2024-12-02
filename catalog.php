@@ -91,6 +91,7 @@ $statement = $pdo->query($sql2);
     <meta charset="UTF-8">
     <name>Betty's Coffees</name>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stylesTwo.css">
 </head>
 <body>
     <!-- Hero Section -->
