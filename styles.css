@@ -116,8 +116,8 @@ button:hover {
 }
 
 th, td {
-    width: 400px;
-    height: 400px;
+    width: 600px;
+    height: 600px;
     padding: 8px;
     text-align: center;
 }
@@ -187,6 +187,11 @@ a {
     background-color:  #333;
 }
 
+.box-long{
+    width: 800px;
+    height: 100px;
+}
+
 .box-2 {
     flex: 1;
     background-color:  #333;
@@ -213,6 +218,11 @@ main {
     width: 80%;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding-bottom: 28px;
+    min-height: 100vh;
 }
