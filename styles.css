@@ -116,10 +116,11 @@ button:hover {
 }
 
 th, td {
-    width: 600px;
-    height: 600px;
+    width: 400px;
+    height: 400px;
     padding: 8px;
     text-align: center;
+    border: 1px solid black;
 }
 
 .table-container {
@@ -137,6 +138,7 @@ table {
     width: 75%;
     margin-top: 20px;
     border-collapse: collapse;
+    border: 1px solid black;
 }
 
 header {
@@ -193,11 +195,19 @@ a {
 }
 
 .box-long2{
-    width: 700px;
+    width: 400px;
     height: 80px;
 }
 
-
+.box-circle{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #de630b;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    
+}
 
 .box-2 {
     flex: 1;
@@ -232,4 +242,5 @@ main {
     align-items: center;
     padding-bottom: 28px;
     min-height: 100vh;
+    margin-bottom: 100px;
 }
