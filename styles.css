@@ -192,6 +192,13 @@ a {
     height: 100px;
 }
 
+.box-long2{
+    width: 700px;
+    height: 80px;
+}
+
+
+
 .box-2 {
     flex: 1;
     background-color:  #333;
