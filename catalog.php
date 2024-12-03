@@ -1,4 +1,5 @@
 <?php
+$selected_file = null;
 session_start();
 require_once 'auth.php';
 
@@ -112,6 +113,7 @@ $statement = $pdo->query($sql2);
                 <input type="text" id="search" name="search" required>
                 <input type="submit" value="Search">
             </form>
+
             
             <?php if (isset($_GET['search'])): ?>
                 <div class="search-results">
@@ -149,6 +151,19 @@ $statement = $pdo->query($sql2);
             <?php endif; ?>
         </div>
     </div>
+
+
+    <?php if ($selected_file): ?>
+    <div class="file-display">
+        <h2>Selected File Details</h2>
+        <p><strong>File Name:</strong> <?php echo $selected_file['name']; ?></p>
+        <p><strong>File Size:</strong> <?php echo $selected_file['size']; ?></p>
+        <div>
+            <strong>Image Preview:</strong><br>
+            <img src="<?php echo htmlspecialchars($selected_file['name']); ?>" alt="<?php echo htmlspecialchars($selected_file['name']); ?>" style="max-width: 400px; max-height: 400px;">
+        </div>
+    </div>
+    <?php endif; ?>
 
     <!-- Tables Section -->
     <div class="table-container">
@@ -206,18 +221,6 @@ $statement = $pdo->query($sql2);
         </form>
     </div>
 
-
-    <?php if ($selected_file): ?>
-    <div class="file-display">
-        <h2>Selected File Details</h2>
-        <p><strong>File Name:</strong> <?php echo $selected_file['name']; ?></p>
-        <p><strong>File Size:</strong> <?php echo $selected_file['size']; ?></p>
-        <div>
-            <strong>Image Preview:</strong><br>
-            <img src="uploads/<?php echo $selected_file['name']; ?>" alt="<?php echo $selected_file['name']; ?>" style="max-width: 400px; max-height: 400px;">
-        </div>
-    </div>
-    <?php endif; ?>
 
 
 
