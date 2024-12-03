@@ -167,6 +167,13 @@ $statement = $pdo->query($sql2);
     <?php endif; ?>
     </section>
 
+    <iframe 
+    src="iframeAttempt.php?file=<?php echo urlencode($selected_file['name']); ?>" 
+    style="width: 100%; height: 100%; border: none; max-width: 400px; max-height: 400px;" 
+    title="Image Preview">
+    </iframe>
+
+
 
     <!-- Tables Section -->
     <div class="table-container">
