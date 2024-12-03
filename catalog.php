@@ -153,6 +153,7 @@ $statement = $pdo->query($sql2);
     </div>
 
 
+    <section class="hero-section">
     <?php if ($selected_file): ?>
     <div class="file-display">
         <h2>Selected File Details</h2>
@@ -164,9 +165,6 @@ $statement = $pdo->query($sql2);
         </div>
     </div>
     <?php endif; ?>
-
-    <section class="box">
-            hi
     </section>
 
 
