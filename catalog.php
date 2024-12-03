@@ -165,6 +165,11 @@ $statement = $pdo->query($sql2);
     </div>
     <?php endif; ?>
 
+    <section class="box">
+            hi
+    </section>
+
+
     <!-- Tables Section -->
     <div class="table-container">
         <h2>All Pictures in Database</h2>
