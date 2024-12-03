@@ -69,10 +69,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt_update = $pdo->prepare($update_sql);
         $stmt_update->execute(['id' => $update_id]);
     }
+
+    // Handle View File Request
+    $selected_file = null;
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['view_file'])) {
+        $selected_file = [
+            'name' => htmlspecialchars($_POST['view_file']),
+            'size' => htmlspecialchars($_POST['view_size']),
+        ];
+    }
+
+
 }
 
 // Get all pictures for the main table
-$sql = 'SELECT id, file_name, file_size, praised FROM pictures WHERE praised = "No"';
+$sql = 'SELECT id, file_name, file_size, praised FROM pictures';
 $stmt = $pdo->query($sql);
 
 // Get all praised pictures for the second table
@@ -85,7 +96,6 @@ $statement = $pdo->query($sql2);
 <head>
     <meta charset="UTF-8">
     <title>Betty's Coffees</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="stylesTwo.css">
 </head>
 <body>
@@ -150,7 +160,8 @@ $statement = $pdo->query($sql2);
                     <th>File Name</th>
                     <th>File Size</th>
                     <th>Praised</th>
-                    <th>Actions</th>
+                    <th>Praise</th>
+                    <th>View File</th>
                 </tr>
             </thead>
             <tbody>
@@ -166,6 +177,17 @@ $statement = $pdo->query($sql2);
                             <input type="submit" name="out_of_stock" value="Mark Praised">
                         </form>
                     </td>
+
+
+                    <td>
+                        <form action="" method="post" style="display:inline;">
+                            <input type="hidden" name="view_file" value="<?php echo htmlspecialchars($row['file_name']); ?>">
+                            <input type="hidden" name="view_size" value="<?php echo htmlspecialchars($row['file_size']); ?>">
+                            <input type="submit" value="View File">
+                        </form>
+                    </td>
+
+
                 </tr>
                 <?php endwhile; ?>
             </tbody>
@@ -183,5 +205,22 @@ $statement = $pdo->query($sql2);
             <input type="submit" value="Add Picture">
         </form>
     </div>
+
+
+    <?php if ($selected_file): ?>
+    <div class="file-display">
+        <h2>Selected File Details</h2>
+        <p><strong>File Name:</strong> <?php echo $selected_file['name']; ?></p>
+        <p><strong>File Size:</strong> <?php echo $selected_file['size']; ?></p>
+        <div>
+            <strong>Image Preview:</strong><br>
+            <img src="uploads/<?php echo $selected_file['name']; ?>" alt="<?php echo $selected_file['name']; ?>" style="max-width: 400px; max-height: 400px;">
+        </div>
+    </div>
+    <?php endif; ?>
+
+
+
+
 </body>
 </html>
