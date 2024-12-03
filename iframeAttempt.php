@@ -23,7 +23,31 @@ if (!file_exists($file_name)) {
     exit;
 }
 
-// Serve the image directly
-header("Content-Type: image/jpeg"); // Change this to the correct MIME type if not JPEG
-readfile($file_name);
+// Serve the image with proper HTML for sizing
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Preview</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <img src="<?php echo htmlspecialchars($file_name); ?>" alt="Preview">
+</body>
+</html>

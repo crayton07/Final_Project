@@ -153,25 +153,12 @@ $statement = $pdo->query($sql2);
     </div>
 
 
-    <section class="hero-section">
-    <?php if ($selected_file): ?>
-    <div class="file-display">
-        <h2>Selected File Details</h2>
-        <p><strong>File Name:</strong> <?php echo $selected_file['name']; ?></p>
-        <p><strong>File Size:</strong> <?php echo $selected_file['size']; ?></p>
-        <div>
-            <strong>Image Preview:</strong><br>
-            <img src="<?php echo htmlspecialchars($selected_file['name']); ?>" alt="<?php echo htmlspecialchars($selected_file['name']); ?>" style="max-width: 400px; max-height: 400px;">
-        </div>
-    </div>
-    <?php endif; ?>
-    </section>
-
     <iframe 
     src="iframeAttempt.php?file=<?php echo urlencode($selected_file['name']); ?>" 
-    style="width: 100%; height: 100%; border: none; max-width: 400px; max-height: 400px;" 
+    style="width: 400px; height: 400px; max-width: 400px; max-height: 400px; border: none; display: block; margin: 0 auto;" 
     title="Image Preview">
     </iframe>
+
 
 
 
