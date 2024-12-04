@@ -129,6 +129,7 @@ $statement = $pdo->query($sql2);
                                     <th>File Name</th>
                                     <th>File Size</th>
                                     <th>Actions</th>
+                                    <th>Display</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -141,6 +142,13 @@ $statement = $pdo->query($sql2);
                                         <form action="" method="post" style="display:inline;">
                                             <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
                                             <input type="submit" value="Remove">
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form action="catalog.php" method="post" target="_parent" style="display:inline;">
+                                            <input type="hidden" name="view_file" value="<?php echo htmlspecialchars($row['file_name']); ?>">
+                                            <input type="hidden" name="view_size" value="<?php echo htmlspecialchars($row['file_size']); ?>">
+                                            <input type="submit" value="View">
                                         </form>
                                     </td>
                                 </tr>
