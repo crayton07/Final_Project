@@ -156,13 +156,6 @@ $statement = $pdo->query($sql2);
     </div>
 
 
-    <iframe 
-    src="iframeAttempt.php?file=<?php echo urlencode($selected_file['name']); ?>" 
-    style="width: 800px; height: 800px; border: none; display: block; margin: 0 auto;" 
-    title="Image Preview">
-    </iframe>
-
-
 
 
 
@@ -211,7 +204,10 @@ $statement = $pdo->query($sql2);
     </div>
 
     <!-- Add Picture Form -->
-    <div class="form-container">
+     <table>
+        <tr>
+            <td>
+            <div class="form-container">
         <h2>Add a New Picture</h2>
         <form action="" method="post">
             <label for="file_name">File Name:</label>
@@ -221,6 +217,16 @@ $statement = $pdo->query($sql2);
             <input type="submit" value="Add Picture">
         </form>
     </div>
+            </td>
+            <td>
+            <iframe 
+            src="iframeAttempt.php?file=<?php echo urlencode($selected_file['name']); ?>" 
+            style="width: 400px; height: 400px; border: none; display: block; margin: 0 auto;" 
+            title="Image Preview">
+            </iframe>
+            </td>
+        </tr>
+     </table>
 
 
 
