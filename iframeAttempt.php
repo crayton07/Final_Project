@@ -39,7 +39,7 @@ if (!file_exists($file_name)) {
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f4;
+            background-color: #232623;
         }
         img {
             max-width: 100%;

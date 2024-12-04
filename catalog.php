@@ -99,20 +99,20 @@ $statement = $pdo->query($sql2);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Betty's Coffees</title>
+    <title>The Experience</title>
     <link rel="stylesheet" href="stylesTwo.css">
 </head>
 <body>
     <!-- Hero Section -->
     <div class="hero-section">
-        <h1 class="hero-name">Betty's Coffee Inventory Check</h1>
-        <p class="hero-subname">"Keep track of your stuff!!!"</p>
+        <h1 class="hero-name">Its a Journey</h1>
+        <p class="hero-subname">"The Professor Dietrich Expereice!!!"</p>
         
         <!-- Search Section -->
         <div class="hero-search">
-            <h2>Search for a Coffee Flavor by Name</h2>
+            <h2>Find your image by name!</h2>
             <form action="" method="GET" class="search-form">
-                <label for="search">Search by name hello:</label>
+                <label for="search">Search by name:</label>
                 <input type="text" id="search" name="search" required>
                 <input type="submit" value="Search">
             </form>
@@ -156,56 +156,28 @@ $statement = $pdo->query($sql2);
     </div>
 
 
+    <iframe 
+        src="tableIFrame.php" 
+        name="table-frame" 
+        style="width: 100%; height: 500px; border: none;" 
+        title="Catalog Table">
+    </iframe>
 
-
-
-    <!-- Tables Section -->
-    <div class="table-container">
-        <h2>All Pictures in Database</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>File Name</th>
-                    <th>File Size</th>
-                    <th>Praised</th>
-                    <th>Praise</th>
-                    <th>View File</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while ($row = $stmt->fetch()): ?>
-                <tr>
-                    <td><?php echo htmlspecialchars($row['id']); ?></td>
-                    <td><?php echo htmlspecialchars($row['file_name']); ?></td>
-                    <td><?php echo htmlspecialchars($row['file_size']); ?></td>
-                    <td><?php echo htmlspecialchars($row['praised']); ?></td>
-                    <td>
-                        <form action="" method="post" style="display:inline;">
-                            <input type="hidden" name="update_id" value="<?php echo $row['id']; ?>">
-                            <input type="submit" name="out_of_stock" value="Mark Praised">
-                        </form>
-                    </td>
-
-
-                    <td>
-                        <form action="" method="post" style="display:inline;">
-                            <input type="hidden" name="view_file" value="<?php echo htmlspecialchars($row['file_name']); ?>">
-                            <input type="hidden" name="view_size" value="<?php echo htmlspecialchars($row['file_size']); ?>">
-                            <input type="submit" value="View File">
-                        </form>
-                    </td>
-
-
-                </tr>
-                <?php endwhile; ?>
-            </tbody>
-        </table>
-    </div>
 
     <!-- Add Picture Form -->
      <table>
         <tr>
+            <td>
+                <td>
+                    <td>
+                        <td>
+                            <td>
+
+                            </td>
+                        </td>
+                    </td>
+                </td>
+            </td>
             <td>
             <div class="form-container">
         <h2>Add a New Picture</h2>
@@ -228,9 +200,9 @@ $statement = $pdo->query($sql2);
         </tr>
      </table>
 
-
-
-
+     <footer>
+    <a href="index.html"> back to homepage</a>
+    </footer>
 
 </body>
 </html>
