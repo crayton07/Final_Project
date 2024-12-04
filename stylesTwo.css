@@ -1,12 +1,13 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #3e413e; /* Updated background color */
-    color: #fff; /* Updated text color */
+    background-color: #3e413e;
+    color: #fff;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* Add a wrapper for the table for better layout control */
 .table-container {
     width: 100%;
     overflow: hidden;
@@ -17,14 +18,14 @@ table {
     width: 100%;
     margin-top: 20px;
     border-collapse: collapse;
-    background-color: #232623; /* Match table box color */
+    background-color: #232623;
     color: #fff;
 }
 
 th, td {
     padding: 8px;
     text-align: left;
-    border-bottom: 1px solid #555; /* Darker border */
+    border-bottom: 1px solid #555;
 }
 
 .half-width-left-align {
@@ -32,6 +33,7 @@ th, td {
     float: none;
 }
 
+/* Create a clear break in the layout */
 .form-container {
     width: 100%;
     clear: both;
@@ -51,11 +53,11 @@ label {
 }
 
 input[type="text"] {
-    padding: 10px; /* Adjusted padding */
+    padding: 10px;
     width: 200px;
     border: none;
     border-radius: 5px;
-    background-color: #232623; /* Match input color */
+    background-color: #444; /* Lighter grey for search box */
     color: #fff;
 }
 
@@ -65,26 +67,26 @@ input[type="submit"] {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #d5a064; /* Button background */
+    background-color: #de630b; /* Slightly darker orange for button */
     color: #fff;
-    transition: background-color 0.3s, transform 0.2s; /* Added hover transition */
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 input[type="submit"]:hover {
-    background-color: #de9a5b; /* Hover color */
-    transform: scale(1.05); /* Slight zoom on hover */
+    background-color: #c2600b; /* Adjusted hover color */
+    transform: scale(1.05);
 }
 
 h1, h2 {
     margin-bottom: 20px;
-    color: #de630b; /* Updated heading color */
+    color: #de630b;
 }
 
 .search-container {
     margin-bottom: 40px;
     padding: 20px;
-    background-color: #333; /* Updated to dark theme */
-    border-radius: 8px; /* Slightly rounded corners */
+    background-color: #333;
+    border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -96,10 +98,10 @@ h1, h2 {
 }
 
 .search-form input[type="text"] {
-    padding: 10px; /* Match input padding */
+    padding: 10px;
     width: 300px;
     border-radius: 5px;
-    background-color: #232623; /* Match form input colors */
+    background-color: #444; /* Lighter grey for search box */
     color: #fff;
     border: none;
 }
@@ -114,7 +116,7 @@ h1, h2 {
 }
 
 .hero-section {
-    background-color: #333; /* Updated to dark background */
+    background-color: #333;
     padding: 40px 20px;
     margin: -20px -20px 40px -20px;
     text-align: center;
@@ -129,7 +131,7 @@ h1, h2 {
 
 .hero-subtitle {
     font-size: 1.2em;
-    color: #ccc; /* Softer subtitle color */
+    color: #ccc;
     margin-bottom: 30px;
     font-style: italic;
 }
@@ -138,19 +140,19 @@ h1, h2 {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #232623; /* Match box color */
+    background-color: #232623;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 a {
-    color: #d5a064; /* Updated link color */
+    color: #d5a064;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 a:hover {
-    color: #f7c08a; /* Hover effect for links */
+    color: #f7c08a;
 }
 
 .box {

@@ -112,7 +112,7 @@ $statement = $pdo->query($sql2);
         <div class="hero-search">
             <h2>Search for a Coffee Flavor by Name</h2>
             <form action="" method="GET" class="search-form">
-                <label for="search">Search by name:</label>
+                <label for="search">Search by name hello:</label>
                 <input type="text" id="search" name="search" required>
                 <input type="submit" value="Search">
             </form>
