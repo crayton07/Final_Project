@@ -8,6 +8,7 @@ if (!is_logged_in()) {
     exit;
 }
 
+
 // Ensure a file name is passed as a GET parameter
 if (!isset($_GET['file']) || empty($_GET['file'])) {
     echo "No file specified.";
@@ -22,6 +23,7 @@ if (!file_exists($file_name)) {
     echo "File not found.";
     exit;
 }
+
 
 // Serve the image with proper HTML for sizing
 ?>

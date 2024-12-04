@@ -1,5 +1,8 @@
 <?php
-$selected_file = null;
+$selected_file = [
+    'name' => 'default.png', // Default image to display
+    'size' => 'Default Size' // Optional, since size might not be relevant for the default image
+];
 session_start();
 require_once 'auth.php';
 
@@ -155,9 +158,10 @@ $statement = $pdo->query($sql2);
 
     <iframe 
     src="iframeAttempt.php?file=<?php echo urlencode($selected_file['name']); ?>" 
-    style="width: 400px; height: 400px; max-width: 400px; max-height: 400px; border: none; display: block; margin: 0 auto;" 
+    style="width: 800px; height: 800px; border: none; display: block; margin: 0 auto;" 
     title="Image Preview">
     </iframe>
+
 
 
 
