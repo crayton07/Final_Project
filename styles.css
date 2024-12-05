@@ -172,17 +172,18 @@ button:hover {
 
 table {
     width: 100%;
-    margin-top: 20px;
+    margin: 20px auto; 
     border-collapse: collapse;
-    background-color: #232623;
+    background-color: #333;
     color: #fff;
 }
 
 th, td {
     padding: 8px;
-    text-align: left;
+    text-align: center; 
     border-bottom: 1px solid #555;
 }
+
 
 header {
     background-color: #333;
@@ -236,10 +237,11 @@ a:hover {
     background-color:  #333;
 }
 
+
 .box-long{
     width: 800px;
     height: 100px;
-
+    margin: 20px auto; 
     justify-content: center;
     align-items: center;
     text-align: center;

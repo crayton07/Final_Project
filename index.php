@@ -60,6 +60,10 @@
             </form>
         </section>
 
+        <br>
+        <br>
+        <br>
+        <br>
         <h1>
             File Names and Descriptions
         </h1>
@@ -75,7 +79,7 @@
 
 <table>
     <tr>
-        <td>
+        <td style="text-align: right">
         <section class="box box-long2">
             <h2>View the Full Catalog Here!!</h2>
             <a href="http://localhost:8080/Final_Project/catalog.php">
