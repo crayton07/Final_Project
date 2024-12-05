@@ -45,10 +45,7 @@
         </section>
 
         <section class="box box-long2">
-            <h2>
-                View the Full Catalog Here!!
-            </h2>
-    
+            <h2>View the Full Catalog Here!!</h2>
             <a href="http://localhost:8080/Final_Project/catalog.php">
                 <section class="box box-circle">
                     <img src="arrow.png" style="height: 30px;">
@@ -57,10 +54,7 @@
         </section>
 
         <section class="box box-long2">
-            <h1>
-                Contribute to the Catalog!! 
-            </h1>
-
+            <h1>Contribute to the Catalog!!</h1>
             <a href="http://localhost:8080/Final_Project/add_form.html">
                 <section class="box box-circle">
                     <img src="arrow.png" style="height: 30px;">
@@ -81,6 +75,16 @@
                 <br><br>
                 <button type="submit">Update Description</button>
             </form>
+        </section>
+
+        <section class="box box-long2">
+            <h1>File Names and Descriptions</h1>
+            <iframe 
+                src="Description.php" 
+                name="table-frame" 
+                style="width: 100%; height: 500px; border: none;" 
+                title="File Names and Descriptions Table">
+            </iframe>
         </section>
     </main>
 
