@@ -69,11 +69,10 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
                 <td><?php echo htmlspecialchars($row['file_size']); ?></td>
                 <td><?php echo htmlspecialchars($row['praised']); ?></td>
                 <td>
-                    <form action="catalog.php" method="post" target="_parent" style="display:inline;">
-                        <input type="hidden" name="view_file" value="<?php echo htmlspecialchars($row['file_name']); ?>">
-                        <input type="hidden" name="view_size" value="<?php echo htmlspecialchars($row['file_size']); ?>">
-                        <input type="submit" value="View">
-                    </form>
+                <form action="iframeAttempt.php" method="get" target="_parent" style="display:inline;">
+                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
+                    <input type="submit" value="View">
+                </form>
                 </td>
             </tr>
             <?php endforeach; ?>

@@ -145,11 +145,11 @@ $statement = $pdo->query($sql2);
                                         </form>
                                     </td>
                                     <td>
-                                        <form action="catalog.php" method="post" target="_parent" style="display:inline;">
-                                            <input type="hidden" name="view_file" value="<?php echo htmlspecialchars($row['file_name']); ?>">
-                                            <input type="hidden" name="view_size" value="<?php echo htmlspecialchars($row['file_size']); ?>">
+                                        <form action="iframeAttempt.php" method="get" target="_parent" style="display:inline;">
+                                            <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
                                             <input type="submit" value="View">
                                         </form>
+
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
