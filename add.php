@@ -61,12 +61,161 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'blob_data' => $blob_file,
         ]);
 
-        // Redirect or confirm success
-        echo "File successfully added to catalog!";
+        // Redirect and display success message
+        echo "<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Success</title>
+    <style>
+        body {
+            background-color: #575a57;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .message {
+            background-color: #232623;
+            color: #d5a064;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .counter {
+            font-size: 1.2em;
+        }
+    </style>
+    <script>
+        let seconds = 5;
+        const countdown = setInterval(() => {
+            document.getElementById('counter').textContent = seconds;
+            seconds--;
+            if (seconds < 0) {
+                clearInterval(countdown);
+                window.location.href = 'add_form.html';
+            }
+        }, 1000);
+    </script>
+</head>
+<body>
+    <div class='message'>
+        <strong>Success!</strong> The file <em>{$file_name}</em> has been successfully added to the catalog.
+    </div>
+    <p class='counter'>Redirecting to the form in <span id='counter'>5</span> seconds...</p>
+</body>
+</html>";
     } else {
-        echo "Failed to upload the file. Please check your inputs.";
+        // Error message
+        echo "<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Error</title>
+    <style>
+        body {
+            background-color: #575a57;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .message {
+            background-color: #3e413e;
+            color: #de630b;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .counter {
+            font-size: 1.2em;
+        }
+    </style>
+    <script>
+        let seconds = 5;
+        const countdown = setInterval(() => {
+            document.getElementById('counter').textContent = seconds;
+            seconds--;
+            if (seconds < 0) {
+                clearInterval(countdown);
+                window.location.href = 'add_form.html';
+            }
+        }, 1000);
+    </script>
+</head>
+<body>
+    <div class='message'>
+        <strong>Error!</strong> Failed to upload the file. Please check your inputs.
+    </div>
+    <p class='counter'>Redirecting to the form in <span id='counter'>5</span> seconds...</p>
+</body>
+</html>";
     }
 } else {
-    echo "Invalid request method.";
+    // Invalid request message
+    echo "<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Warning</title>
+    <style>
+        body {
+            background-color: #575a57;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .message {
+            background-color: #3e413e;
+            color: #d5a064;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .counter {
+            font-size: 1.2em;
+        }
+    </style>
+    <script>
+        let seconds = 5;
+        const countdown = setInterval(() => {
+            document.getElementById('counter').textContent = seconds;
+            seconds--;
+            if (seconds < 0) {
+                clearInterval(countdown);
+                window.location.href = 'add_form.html';
+            }
+        }, 1000);
+    </script>
+</head>
+<body>
+    <div class='message'>
+        <strong>Warning!</strong> Invalid request method.
+    </div>
+    <p class='counter'>Redirecting to the form in <span id='counter'>5</span> seconds...</p>
+</body>
+</html>";
 }
 ?>
