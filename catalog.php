@@ -100,7 +100,7 @@ $statement = $pdo->query($sql2);
         
         <!-- Search Section -->
         <div class="hero-search">
-            <h2>Find your image by name!</h2>
+            <h2>Search for Images to Remove</h2>
             <form action="" method="GET" class="search-form">
                 <label for="search">Search by name:</label>
                 <input type="text" id="search" name="search" required>
