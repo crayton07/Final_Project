@@ -20,26 +20,26 @@
    
     <section class="box box-long">
         <p style="font-size: 20px;">
-            This curated collection of 55 meticulously edited images was created by Mr.Philip Gonzales, 
+            This curated collection of 55 meticulously edited images was created by Mr. Philip Gonzales, 
             and this website has been made to display them. 
         </p>
     </section>
 
     <main>
         <section class="subheader">
-            <h2>Noteable Images</h2>
+            <h2>Notable Images</h2>
         </section>
         <section class="image-row">
             <div class="image-box">
-                <img src="deet sky.png" alt="Image 1">
+                <img src="Deets ate my dog.png" alt="Image 1">
                 <label>The Fan Favorite</label>
             </div>
             <div class="image-box">
-                <img src="deet sky.png" alt="Image 2">
+                <img src="floss.png" alt="Image 2">
                 <label>The Most Questionable</label>
             </div>
             <div class="image-box">
-                <img src="deet sky.png" alt="Image 3">
+                <img src="syphon.png" alt="Image 3">
                 <label>Professor Dietrich's Favorite</label>
             </div>
         </section>
@@ -50,11 +50,10 @@
             </h2>
     
             <a href="http://localhost:8080/Final_Project/catalog.php">
-            <section class="box box-circle">
-                <img src="arrow.png" style="height: 30px;">
-            </section>
+                <section class="box box-circle">
+                    <img src="arrow.png" style="height: 30px;">
+                </section>
             </a>
-    
         </section>
 
         <section class="box box-long2">
@@ -66,10 +65,23 @@
                 <section class="box box-circle">
                     <img src="arrow.png" style="height: 30px;">
                 </section>
-                </a>
+            </a>
         </section>
-        
 
+        <section class="box box-long2">
+            <h1>Change Image Description</h1>
+            <form action="edit_description.php" method="POST">
+                <label for="file_name">Select an Image:</label>
+                <select id="file_name" name="file_name" required>
+                    <?php include 'get_image_names.php'; ?>
+                </select>
+                <br><br>
+                <label for="description">New Description:</label>
+                <textarea id="description" name="description" rows="3" required></textarea>
+                <br><br>
+                <button type="submit">Update Description</button>
+            </form>
+        </section>
     </main>
 
     <footer>
