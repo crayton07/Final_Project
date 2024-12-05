@@ -43,15 +43,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 
 // Handle form submissions
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['file_name']) && isset($_POST['file_size'])) {
-        // Insert new entry
-        $file_name = htmlspecialchars($_POST['file_name']);
-        $file_size = htmlspecialchars($_POST['file_size']);
-        
-        $insert_sql = 'INSERT INTO pictures (file_name, file_size) VALUES (:file_name, :file_size)';
-        $stmt_insert = $pdo->prepare($insert_sql);
-        $stmt_insert->execute(['file_name' => $file_name, 'file_size' => $file_size]);
-    } elseif (isset($_POST['delete_id'])) {
+    if (isset($_POST['delete_id'])) {
         // Delete an entry
         $delete_id = (int) $_POST['delete_id'];
         
@@ -82,8 +74,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'size' => htmlspecialchars($_POST['view_size']),
         ];
     }
-
-
 }
 
 // Get all pictures for the main table
@@ -170,46 +160,15 @@ $statement = $pdo->query($sql2);
         title="Catalog Table">
     </iframe>
 
+    <h1 style="text-align: right; margin-right: 20px; padding-right: 100px;">Image displayed here</h1>
+    <iframe 
+        name="image-frame" 
+        style="width: 400px; height: 400px; border: none; display: block; margin: 0 auto;" 
+        title="Image Preview">
+    </iframe>   
 
-    <!-- Add Picture Form -->
-     <table>
-        <tr>
-            <td>
-                <td>
-                    <td>
-                        <td>
-                            <td>
-
-                            </td>
-                        </td>
-                    </td>
-                </td>
-            </td>
-            <td>
-            <div class="form-container">
-        <h2>Add a New Picture</h2>
-        <form action="" method="post">
-            <label for="file_name">File Name:</label>
-            <input type="text" id="file_name" name="file_name" required><br><br>
-            <label for="file_size">File Size:</label>
-            <input type="text" id="file_size" name="file_size" required><br><br>
-            <input type="submit" value="Add Picture">
-        </form>
-    </div>
-            </td>
-            <td>
-                <iframe 
-                    name="image-frame" 
-                    style="width: 400px; height: 400px; border: none; display: block; margin: 0 auto;" 
-                    title="Image Preview">
-                </iframe>   
-            </td>
-        </tr>
-     </table>
-
-     <footer>
-    <a href="index.html"> back to homepage</a>
+    <footer>
+        <a href="index.html">Back to homepage</a>
     </footer>
-
 </body>
 </html>

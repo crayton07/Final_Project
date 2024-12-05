@@ -44,9 +44,30 @@ if (!$file) {
     echo "File not found.";
     exit;
 }
-
-// Serve the image with proper headers
-header('Content-Type: image/jpeg'); // Adjust MIME type if necessary
-header('Content-Disposition: inline; filename="' . htmlspecialchars($file['filename']) . '"');
-echo $file['blob_data'];
-exit;
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Preview</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #232623;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <img src="data:image/jpeg;base64,<?php echo base64_encode($file['blob_data']); ?>" alt="Preview">
+</body>
+</html>
