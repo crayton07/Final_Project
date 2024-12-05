@@ -160,10 +160,11 @@ $statement = $pdo->query($sql2);
         title="Catalog Table">
     </iframe>
 
-    <h1 style="text-align: right; margin-right: 20px; padding-right: 100px;">Image displayed here</h1>
+    <h1 style="text-align: center; margin-right: 20px;">Image displayed here</h1>
+
     <iframe 
         name="image-frame" 
-        style="width: 400px; height: 400px; border: none; display: block; margin: 0 auto;" 
+        style="width: 600px; height: 600px; border: none; display: block; margin: 0 auto; padding-bottom: 30px;" 
         title="Image Preview">
     </iframe>   
 

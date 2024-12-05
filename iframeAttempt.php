@@ -57,11 +57,12 @@ if (!$file) {
             justify-content: center;
             align-items: center;
             height: 100vh;
+            width: 100vw;
             background-color: #232623;
         }
         img {
-            max-width: 100%;
-            max-height: 100%;
+            max-width: 90%;
+            max-height: 90%;
             object-fit: contain;
             border-radius: 10px;
         }
