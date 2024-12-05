@@ -44,15 +44,26 @@
             </div>
         </section>
 
+
+        <h1>
+            Describe Some Images
+        </h1>
         <section class="box box-long2" style="width: 400px; height: 230px;">
-            <h1>Change Image Description</h1>
             <form action="edit_description.php" method="POST">
-                <label for="file_name">Select an Image:</label>
+                <label for="file_name">
+                    <p>
+                        Select an Image:
+                    </p>
+                </label>
                 <select id="file_name" name="file_name" required>
                     <?php include 'get_image_names.php'; ?>
                 </select>
                 <br><br>
-                <label for="description">New Description:</label>
+                <label for="description">
+                    <p>
+                        New Description:
+                    </p>
+                </label>
                 <textarea id="description" name="description" rows="3" required></textarea>
                 <br><br>
                 <button type="submit">Update Description</button>

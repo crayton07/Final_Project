@@ -31,11 +31,9 @@ try {
 // Process form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['file_name'], $_POST['description'])) {
-        // Sanitize inputs
         $file_name = htmlspecialchars($_POST['file_name']);
         $description = htmlspecialchars($_POST['description']);
 
-        // Update the description in the database
         $sql = 'UPDATE pictures SET description = :description WHERE file_name = :file_name';
         $stmt = $pdo->prepare($sql);
 
@@ -44,14 +42,89 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'description' => $description,
                 'file_name' => $file_name,
             ]);
-            echo "Description updated successfully! <a href='index.php'>Return to Home</a>";
+            // Success message
+            echo renderResponsePage(
+                "Success!",
+                "The description for <em>{$file_name}</em> was updated successfully.",
+                "index.php"
+            );
         } catch (PDOException $e) {
-            die("Failed to update description: " . $e->getMessage());
+            // Error message
+            echo renderResponsePage(
+                "Error!",
+                "Failed to update the description. Please try again.",
+                "index.php"
+            );
         }
     } else {
-        echo "Invalid input. <a href='index.php'>Return to Home</a>";
+        // Invalid input message
+        echo renderResponsePage(
+            "Invalid Input!",
+            "The form inputs were invalid. Please try again.",
+            "index.php"
+        );
     }
 } else {
-    echo "Invalid request method. <a href='index.php'>Return to Home</a>";
+    // Invalid request method message
+    echo renderResponsePage(
+        "Invalid Request!",
+        "This action can only be performed through the form submission.",
+        "index.php"
+    );
+}
+
+// Function to render a styled response page
+function renderResponsePage($title, $message, $redirect) {
+    return "
+    <!DOCTYPE html>
+    <html lang='en'>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>{$title}</title>
+        <style>
+            body {
+                background-color: #575a57;
+                color: #fff;
+                font-family: Arial, sans-serif;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+            .message {
+                background-color: #232623;
+                color: #d5a064;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .counter {
+                font-size: 1.2em;
+            }
+        </style>
+        <script>
+            let seconds = 5;
+            const countdown = setInterval(() => {
+                document.getElementById('counter').textContent = seconds;
+                seconds--;
+                if (seconds < 0) {
+                    clearInterval(countdown);
+                    window.location.href = '{$redirect}';
+                }
+            }, 1000);
+        </script>
+    </head>
+    <body>
+        <div class='message'>
+            <strong>{$title}</strong><br>{$message}
+        </div>
+        <p class='counter'>Redirecting in <span id='counter'>5</span> seconds...</p>
+    </body>
+    </html>";
 }
 ?>
