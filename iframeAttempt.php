@@ -33,9 +33,9 @@ try {
     throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
 
-// Fetch the image data from the database
+// Fetch the image data from the Blobs table
 $file_id = (int) $_GET['id'];
-$query = 'SELECT file_name, blob_data FROM pictures WHERE id = :id';
+$query = 'SELECT filename, blob_data FROM Blobs WHERE id = :id';
 $stmt = $pdo->prepare($query);
 $stmt->execute(['id' => $file_id]);
 $file = $stmt->fetch();
@@ -47,6 +47,6 @@ if (!$file) {
 
 // Serve the image with proper headers
 header('Content-Type: image/jpeg'); // Adjust MIME type if necessary
-header('Content-Disposition: inline; filename="' . htmlspecialchars($file['file_name']) . '"');
+header('Content-Disposition: inline; filename="' . htmlspecialchars($file['filename']) . '"');
 echo $file['blob_data'];
 exit;

@@ -145,11 +145,10 @@ $statement = $pdo->query($sql2);
                                         </form>
                                     </td>
                                     <td>
-                                        <form action="iframeAttempt.php" method="get" target="_parent" style="display:inline;">
+                                        <form action="iframeAttempt.php" method="get" target="image-frame" style="display:inline;">
                                             <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
                                             <input type="submit" value="View">
                                         </form>
-
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -199,11 +198,11 @@ $statement = $pdo->query($sql2);
     </div>
             </td>
             <td>
-            <iframe 
-            src="iframeAttempt.php?file=<?php echo urlencode($selected_file['name']); ?>" 
-            style="width: 400px; height: 400px; border: none; display: block; margin: 0 auto;" 
-            title="Image Preview">
-            </iframe>
+                <iframe 
+                    name="image-frame" 
+                    style="width: 400px; height: 400px; border: none; display: block; margin: 0 auto;" 
+                    title="Image Preview">
+                </iframe>   
             </td>
         </tr>
      </table>
