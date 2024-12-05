@@ -164,31 +164,24 @@ button:hover {
     float: none; 
 }
 
-th, td {
-    width: 400px;
-    height: 400px;
-    padding: 8px;
-    text-align: center;
-    border: 1px solid black;
-}
-
-
 .table-container {
     width: 100%;
     overflow: hidden;
     margin-bottom: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: fit-content;
 }
 
-
 table {
-    width: 75%;
+    width: 100%;
     margin-top: 20px;
     border-collapse: collapse;
-    border: 1px solid black;
+    background-color: #232623;
+    color: #fff;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #555;
 }
 
 header {

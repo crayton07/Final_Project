@@ -44,23 +44,6 @@
             </div>
         </section>
 
-        <section class="box box-long2">
-            <h2>View the Full Catalog Here!!</h2>
-            <a href="http://localhost:8080/Final_Project/catalog.php">
-                <section class="box box-circle">
-                    <img src="arrow.png" style="height: 30px;">
-                </section>
-            </a>
-        </section>
-
-        <section class="box box-long2">
-            <h1>Contribute to the Catalog!!</h1>
-            <a href="http://localhost:8080/Final_Project/add_form.html">
-                <section class="box box-circle">
-                    <img src="arrow.png" style="height: 30px;">
-                </section>
-            </a>
-        </section>
 
         <section class="box box-long2">
             <h1>Change Image Description</h1>
@@ -77,15 +60,48 @@
             </form>
         </section>
 
-        <section class="box box-long2">
-            <h1>File Names and Descriptions</h1>
+        <h1>
+            File Names and Descriptions
+        </h1>
+
+        <section class="box">
             <iframe 
                 src="Description.php" 
                 name="table-frame" 
-                style="width: 100%; height: 500px; border: none;" 
+                style="width: 100%; height: 300px; border: none;" 
                 title="File Names and Descriptions Table">
             </iframe>
         </section>
+
+<table>
+    <tr>
+        <td>
+        <section class="box box-long2">
+            <h2>View the Full Catalog Here!!</h2>
+            <a href="http://localhost:8080/Final_Project/catalog.php">
+                <section class="box box-circle">
+                    <img src="arrow.png" style="height: 30px;">
+                </section>
+            </a>
+        </section>
+
+        </td>
+
+        <td>
+
+
+        <section class="box box-long2">
+            <h1>Contribute to the Catalog!!</h1>
+            <a href="http://localhost:8080/Final_Project/add_form.html">
+                <section class="box box-circle">
+                    <img src="arrow.png" style="height: 30px;">
+                </section>
+            </a>
+        </section>
+        </td>
+    </tr>
+    </table>
+
     </main>
 
     <footer>
