@@ -44,8 +44,7 @@
             </div>
         </section>
 
-
-        <section class="box box-long2">
+        <section class="box box-long2" style="width: 400px; height: 230px;">
             <h1>Change Image Description</h1>
             <form action="edit_description.php" method="POST">
                 <label for="file_name">Select an Image:</label>
