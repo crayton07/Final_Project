@@ -21,7 +21,7 @@
     <section class="box box-long">
         <p style="font-size: 20px;">
             This curated collection of 55 meticulously edited images was created by Mr. Philip Gonzales, 
-            and this website has been made to display them. 
+            and this website has been made to display them!
         </p>
     </section>
 
