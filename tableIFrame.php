@@ -27,6 +27,14 @@ try {
     throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
 
+// Handle updating "praised" column
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['praise_id'])) {
+    $praise_id = (int) $_POST['praise_id'];
+    $update_sql = 'UPDATE pictures SET praised = "Yes" WHERE id = :id';
+    $update_stmt = $pdo->prepare($update_sql);
+    $update_stmt->execute(['id' => $praise_id]);
+}
+
 // Handle search
 $search_results = null;
 if (isset($_GET['search']) && !empty($_GET['search'])) {
@@ -69,10 +77,20 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
                 <td><?php echo htmlspecialchars($row['file_size']); ?></td>
                 <td><?php echo htmlspecialchars($row['praised']); ?></td>
                 <td>
-                <form action="iframeAttempt.php" method="get" target="image-frame" style="display:inline;">
-                     <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
-                    <input type="submit" value="View">
-                </form>
+                    <!-- View Image Button -->
+                    <form action="iframeAttempt.php" method="get" target="image-frame" style="display:inline;">
+                        <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
+                        <input type="submit" value="View">
+                    </form>
+                    <!-- Praise Button -->
+                    <?php if ($row['praised'] !== "Yes"): ?>
+                    <form action="" method="post" style="display:inline;">
+                        <input type="hidden" name="praise_id" value="<?php echo htmlspecialchars($row['id']); ?>">
+                        <input type="submit" value="Praise">
+                    </form>
+                    <?php else: ?>
+                        <span>Praised</span>
+                    <?php endif; ?>
                 </td>
             </tr>
             <?php endforeach; ?>

@@ -19,9 +19,6 @@
     </header>
    
     <section class="box box-long">
-        <h1>
-            The Real Creator
-        </h1>
         <p style="font-size: 20px;">
             This curated collection of 55 meticulously edited images was created by Mr. Philip Gonzales, 
             and this website has been made to display them. 
