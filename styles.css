@@ -235,12 +235,6 @@ a:hover {
 .box-long{
     width: 800px;
     height: 100px;
-    margin: 20px auto; 
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 30px auto;
-    padding: 20px;
 }
 
 .box-long2{

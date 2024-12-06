@@ -13,12 +13,15 @@
                 <img src="stretchedHeroSection.png">
             </div>
         </section>
-        <h1>
+        <h1 style="font-size: 100px;">
             Embark on the Dietrich Journey!!!
         </h1>
     </header>
    
     <section class="box box-long">
+        <h1>
+            The Real Creator
+        </h1>
         <p style="font-size: 20px;">
             This curated collection of 55 meticulously edited images was created by Mr. Philip Gonzales, 
             and this website has been made to display them. 
@@ -48,10 +51,10 @@
         <h1>
             Describe Some Images
         </h1>
-        <section class="box box-long2" style="width: 400px; height: 230px;">
+        <section class="box box-long2" style="width: 400px; height: 300px;">
             <form action="edit_description.php" method="POST">
                 <label for="file_name">
-                    <p>
+                    <p style="font-size: 20px;">
                         Select an Image:
                     </p>
                 </label>
@@ -60,7 +63,7 @@
                 </select>
                 <br><br>
                 <label for="description">
-                    <p>
+                    <p style="font-size: 20px;">
                         New Description:
                     </p>
                 </label>

@@ -169,7 +169,7 @@ $statement = $pdo->query($sql2);
     </iframe>   
 
     <footer>
-        <a href="index.html">Back to homepage</a>
+        <a href="index.php">Back to homepage</a>
     </footer>
 </body>
 </html>
