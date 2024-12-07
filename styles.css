@@ -1,16 +1,3 @@
-body {
-    background-color: #3e413e;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-p{
-   color:  #d5a064;
-}
-
-
 /* Subheader styles */
 .subheader {
     width: 100%;
@@ -79,51 +66,17 @@ p{
     transform: translate(-50%, -50%);
 }
 
-h1 {
-    text-align: center;
-    color: #de630b;
-}
 
-h2{
-    text-align: center;
-}
 
-.question {
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: #0d290d;
-    border-radius: 5px;
-}
 
-.question.alternate {
-    background-color: #144d47;
-}
 
-label {
-    display: block;
-    margin-bottom: 5px;
-}
 
 input[type="text"],
 input[type="email"],
 input[type="number"],
 textarea,
-select {
-    width: 50%;
-    height: 10px;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: #c6521c;
-    color: white;
-}
 
 input[type="range"],
-input[type="date"] {
-    width: 100%;
-}
 
 .images label {
     display: inline-block;
@@ -139,58 +92,6 @@ input[type="date"] {
 }
 
 .images img:hover {
-    transform: scale(1.1);
-}
-
-button {
-    width: 50%;
-    height: 10%;
-    margin-top: 10px;
-    background-color: #d5a064;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #c2600b;
-}
-
-
-.half-width-left-align {
-    width: 50%;
-    float: none; 
-}
-
-.table-container {
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 40px;
-}
-
-table {
-
-    border-collapse: collapse;
-    background-color: #333;
-    color: #fff;
-}
-
-
-
-header {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-a {
-    color: #d5a064;
-}
-
-a:hover {
     transform: scale(1.1);
 }
 
@@ -257,73 +158,81 @@ a:hover {
     background-color:  #333;
 }
 
-.pad-top{
-    padding-top: 1px;
-}
 
-footer {
-    background-color: #333;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-
-
-main {
-    margin: 30px auto;
+.search-container {
+    margin-bottom: 40px;
     padding: 20px;
     background-color: #333;
-    width: 80%;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 28px;
-    min-height: 100vh;
-    margin-bottom: 100px;
-}
-
-iframe {
-    border:2px solid black; 
-    height:500px; 
-    width:400px"
-}   
-
-
-.custom-body {
-    background-color: #575a57;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-
-.message {
-    background-color: #232623;
-    color: #d5a064;
-    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
     margin-bottom: 20px;
 }
 
-
-.counter {
-    font-size: 1.2em;
+.search-form input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+    border: none;
 }
 
-.message.error {
-    background-color: #3e413e;
+.search-results {
+    margin-top: 20px;
+}
+
+.search-results h3 {
+    margin-bottom: 15px;
     color: #de630b;
+}
+
+.hero-section {
+    background-color: #333;
+    padding: 40px 20px;
+    margin: -20px -20px 40px -20px;
+    text-align: center;
+    border-bottom: 1px solid #555;
+}
+
+.hero-title {
+    font-size: 2.5em;
+    color: #de630b;
+    margin-bottom: 15px;
+}
+
+.hero-subtitle {
+    font-size: 1.2em;
+    color: #ccc;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.hero-search {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #232623;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.box {
+    background-color: #232623;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
