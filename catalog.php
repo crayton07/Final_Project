@@ -4,7 +4,7 @@ require_once 'auth.php';
 
 // Redirect if not logged in
 if (!is_logged_in()) {
-    header('Location: login.php');
+    header('Location: guess.html');
     exit;
 }
 

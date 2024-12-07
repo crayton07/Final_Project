@@ -103,7 +103,7 @@
 
         <section class="box box-long2">
             <h1>Contribute to the Catalog!!</h1>
-            <a href="http://localhost:8080/Final_Project/add_form.html">
+            <a href="http://localhost:8080/Final_Project/add_form.php">
                 <section class="box box-circle">
                     <img src="arrow.png" style="height: 30px;">
                 </section>
