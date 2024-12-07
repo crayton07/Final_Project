@@ -127,7 +127,7 @@ if (!empty($_GET['search'])) {
 
     <iframe src="tableIFrame.php" name="table-frame" style="width: 100%; height: 500px; border: none;" title="Catalog Table"></iframe>
     <h1 style="text-align: center;">Image displayed here</h1>
-    <iframe name="image-frame" style="width: 600px; height: 600px; border: none; display: block; margin: 0 auto;" title="Image Preview"></iframe>   
+    <iframe src="iframeAttempt.php" name="image-frame" style="width: 600px; height: 600px; border: none; display: block; margin: 0 auto; margin-bottom: 20px;" title="Image Preview"></iframe>   
 
     <footer>
         <a href="index.php">Back to homepage</a>

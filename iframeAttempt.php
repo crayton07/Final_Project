@@ -7,11 +7,6 @@ if (!is_logged_in()) {
     exit;
 }
 
-if (!isset($_GET['id']) || empty($_GET['id'])) {
-    echo "No file specified.";
-    exit;
-}
-
 $host = 'db'; 
 $dbname = 'final_project'; 
 $user = 'root'; 
@@ -31,15 +26,20 @@ try {
     throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
 
-$file_id = (int) $_GET['id'];
-$query = 'SELECT filename, blob_data FROM Blobs WHERE id = :id';
-$stmt = $pdo->prepare($query);
-$stmt->execute(['id' => $file_id]);
-$file = $stmt->fetch();
+$image_src = 'default.png';
 
-if (!$file) {
-    echo "File not found.";
-    exit;
+if (isset($_GET['id']) && !empty($_GET['id'])) {
+    $file_id = (int)$_GET['id'];
+    $query = 'SELECT filename, blob_data FROM Blobs WHERE id = :id';
+    $stmt = $pdo->prepare($query);
+    $stmt->execute(['id' => $file_id]);
+    $file = $stmt->fetch();
+
+    if ($file) {
+        $image_src = 'data:image/jpeg;base64,' . base64_encode($file['blob_data']);
+    } else {
+        $image_src = 'default.png';
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -66,6 +66,6 @@ if (!$file) {
     </style>
 </head>
 <body>
-    <img src="data:image/jpeg;base64,<?php echo base64_encode($file['blob_data']); ?>" alt="Preview">
+    <img src="<?= htmlspecialchars($image_src) ?>" alt="Image Preview">
 </body>
 </html>
