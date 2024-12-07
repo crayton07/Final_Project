@@ -45,26 +45,13 @@
             </div>
         </section>
 
-        <section class="box box-long2" style="width: 400px; height: 300px;">
-            <form action="edit_description.php" method="POST">
-                <label for="file_name">
-                    <p style="font-size: 20px;">
-                        Select an Image:
-                    </p>
-                </label>
-                <select id="file_name" name="file_name" required>
-                    <?php include 'get_image_names.php'; ?>
-                </select>
-                <br><br>
-                <label for="description">
-                    <p style="font-size: 20px;">
-                        New Description:
-                    </p>
-                </label>
-                <textarea id="description" name="description" rows="3" required></textarea>
-                <br><br>
-                <button type="submit">Update <br> Description</button>
-            </form>
+        <section class="box box-long2" style="width: 40%; height: 350px; border: none;">
+            <iframe 
+                src="edit_description_form.php" 
+                name="edit-description-frame" 
+                style="width: 100%; height: 100%; border: none;" 
+                title="Edit Description Form">
+            </iframe>
         </section>
 
         <br>
