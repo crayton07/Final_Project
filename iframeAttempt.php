@@ -2,13 +2,11 @@
 session_start();
 require_once 'auth.php';
 
-// Check if user is logged in
 if (!is_logged_in()) {
     header('Location: login.php');
     exit;
 }
 
-// Ensure a file ID is passed as a GET parameter
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     echo "No file specified.";
     exit;
@@ -33,7 +31,6 @@ try {
     throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
 
-// Fetch the image data from the Blobs table
 $file_id = (int) $_GET['id'];
 $query = 'SELECT filename, blob_data FROM Blobs WHERE id = :id';
 $stmt = $pdo->prepare($query);

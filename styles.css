@@ -293,3 +293,37 @@ iframe {
     height:500px; 
     width:400px"
 }   
+
+
+.custom-body {
+    background-color: #575a57;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+.message {
+    background-color: #232623;
+    color: #d5a064;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.counter {
+    font-size: 1.2em;
+}
+
+.message.error {
+    background-color: #3e413e;
+    color: #de630b;
+}

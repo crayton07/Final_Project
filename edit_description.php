@@ -43,34 +43,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'file_name' => $file_name,
             ]);
             // Success message
-            echo renderResponsePage(
-                "Success!",
-                "The description for <em>{$file_name}</em> was updated successfully.",
-                "index.php"
-            );
+            echo renderResponsePage("Success!", "The description for <em>{$file_name}</em> was updated successfully.", "index.php");
         } catch (PDOException $e) {
             // Error message
-            echo renderResponsePage(
-                "Error!",
-                "Failed to update the description. Please try again.",
-                "index.php"
-            );
+            echo renderResponsePage("Error!", "Failed to update the description. Please try again.", "index.php");
         }
     } else {
         // Invalid input message
-        echo renderResponsePage(
-            "Invalid Input!",
-            "The form inputs were invalid. Please try again.",
-            "index.php"
-        );
+        echo renderResponsePage("Invalid Input!", "The form inputs were invalid. Please try again.", "index.php");
     }
 } else {
     // Invalid request method message
-    echo renderResponsePage(
-        "Invalid Request!",
-        "This action can only be performed through the form submission.",
-        "index.php"
-    );
+    echo renderResponsePage("Invalid Request!", "This action can only be performed through the form submission.", "index.php");
 }
 
 // Function to render a styled response page
@@ -82,31 +66,7 @@ function renderResponsePage($title, $message, $redirect) {
         <meta charset='UTF-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <title>{$title}</title>
-        <style>
-            body {
-                background-color: #575a57;
-                color: #fff;
-                font-family: Arial, sans-serif;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
-            }
-            .message {
-                background-color: #232623;
-                color: #d5a064;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-                text-align: center;
-                margin-bottom: 20px;
-            }
-            .counter {
-                font-size: 1.2em;
-            }
-        </style>
+        <link rel='stylesheet' href='styles.css'>
         <script>
             let seconds = 5;
             const countdown = setInterval(() => {
@@ -119,9 +79,9 @@ function renderResponsePage($title, $message, $redirect) {
             }, 1000);
         </script>
     </head>
-    <body>
+    <body class='custom-body'>
         <div class='message'>
-            <strong>{$title}</strong><br>{$message}
+            <strong>{$title}</strong> {$message}
         </div>
         <p class='counter'>Redirecting in <span id='counter'>5</span> seconds...</p>
     </body>

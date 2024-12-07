@@ -17,13 +17,14 @@
             Embark on the Dietrich Journey!!!
         </h1>
     </header>
-   
-    <section class="box box-long">
+
+    <section class="box box-long" style="justify-content: center; align-items: center; text-align: center; margin-left: 330px;">
         <p style="font-size: 20px;">
             This curated collection of 55 meticulously edited images was created by Mr. Philip Gonzales, 
             and this website has been made to display them!
         </p>
     </section>
+
 
     <main>
         <section class="subheader">
@@ -44,10 +45,6 @@
             </div>
         </section>
 
-
-        <h1>
-            Describe Some Images
-        </h1>
         <section class="box box-long2" style="width: 400px; height: 300px;">
             <form action="edit_description.php" method="POST">
                 <label for="file_name">
@@ -66,7 +63,7 @@
                 </label>
                 <textarea id="description" name="description" rows="3" required></textarea>
                 <br><br>
-                <button type="submit">Update Description</button>
+                <button type="submit">Update <br> Description</button>
             </form>
         </section>
 

@@ -39,7 +39,6 @@ try {
     <link rel="stylesheet" href="stylesTwo.css">
 </head>
 <body>
-    <h2>File Names and Descriptions</h2>
     <table>
         <thead>
             <tr>
