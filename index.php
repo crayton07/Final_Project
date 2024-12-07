@@ -116,7 +116,10 @@
     </main>
 
     <footer>
-        <a href="http://localhost:8080/Final_Project/login.php">Log Out</a>
+        <a href="http://localhost:8080/Final_Project/logout.php">
+            Log Out
+        </a>
     </footer>
+
 </body>
 </html>
