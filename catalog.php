@@ -34,14 +34,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Delete an entry
         $delete_sql = 'DELETE FROM pictures WHERE id = :id';
         $pdo->prepare($delete_sql)->execute(['id' => (int)$_POST['delete_id']]);
-    } elseif (isset($_POST['praise_id'])) {
-        // Mark an entry as praised
-        $praise_sql = 'UPDATE pictures SET praised = "Yes" WHERE id = :id';
-        $pdo->prepare($praise_sql)->execute(['id' => (int)$_POST['praise_id']]);
-    } elseif (isset($_POST['unpraise_id'])) {
-        // Unmark an entry as praised
-        $unpraise_sql = 'UPDATE pictures SET praised = "No" WHERE id = :id';
-        $pdo->prepare($unpraise_sql)->execute(['id' => (int)$_POST['unpraise_id']]);
+    } elseif (isset($_POST['toggle_praise_id'])) {
+        // Toggle praised status
+        $id = (int)$_POST['toggle_praise_id'];
+        $check_sql = 'SELECT praised FROM pictures WHERE id = :id';
+        $stmt_check = $pdo->prepare($check_sql);
+        $stmt_check->execute(['id' => $id]);
+        $current_state = $stmt_check->fetchColumn();
+
+        $new_state = ($current_state === "Yes") ? "No" : "Yes";
+        $update_sql = 'UPDATE pictures SET praised = :new_state WHERE id = :id';
+        $pdo->prepare($update_sql)->execute(['new_state' => $new_state, 'id' => $id]);
     }
 }
 
@@ -98,17 +101,16 @@ if (!empty($_GET['search'])) {
                                     <td><?= htmlspecialchars($row['file_size']) ?></td>
                                     <td><?= htmlspecialchars($row['praised']) ?></td>
                                     <td>
+                                        <!-- Remove Button -->
                                         <form action="" method="POST" style="display:inline;">
                                             <input type="hidden" name="delete_id" value="<?= $row['id'] ?>">
                                             <input type="submit" value="Remove">
                                         </form>
+
+                                        <!-- Toggle Praise/Unpraise Button -->
                                         <form action="" method="POST" style="display:inline;">
-                                            <input type="hidden" name="praise_id" value="<?= $row['id'] ?>">
-                                            <input type="submit" value="Praise">
-                                        </form>
-                                        <form action="" method="POST" style="display:inline;">
-                                            <input type="hidden" name="unpraise_id" value="<?= $row['id'] ?>">
-                                            <input type="submit" value="Unpraise">
+                                            <input type="hidden" name="toggle_praise_id" value="<?= $row['id'] ?>">
+                                            <input type="submit" value="<?= $row['praised'] === 'Yes' ? 'Unpraise' : 'Praise' ?>">
                                         </form>
                                     </td>
                                 </tr>

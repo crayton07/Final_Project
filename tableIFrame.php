@@ -28,11 +28,16 @@ try {
 }
 
 // Handle updating "praised" column
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['praise_id'])) {
-    $praise_id = (int) $_POST['praise_id'];
-    $update_sql = 'UPDATE pictures SET praised = "Yes" WHERE id = :id';
-    $update_stmt = $pdo->prepare($update_sql);
-    $update_stmt->execute(['id' => $praise_id]);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['praise_id'])) {
+        // Set praised to "Yes"
+        $update_sql = 'UPDATE pictures SET praised = "Yes" WHERE id = :id';
+        $pdo->prepare($update_sql)->execute(['id' => (int)$_POST['praise_id']]);
+    } elseif (isset($_POST['unpraise_id'])) {
+        // Set praised to "No"
+        $update_sql = 'UPDATE pictures SET praised = "No" WHERE id = :id';
+        $pdo->prepare($update_sql)->execute(['id' => (int)$_POST['unpraise_id']]);
+    }
 }
 
 // Handle search
@@ -82,14 +87,17 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
                         <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
                         <input type="submit" value="View">
                     </form>
-                    <!-- Praise Button -->
-                    <?php if ($row['praised'] !== "Yes"): ?>
-                    <form action="" method="post" style="display:inline;">
-                        <input type="hidden" name="praise_id" value="<?php echo htmlspecialchars($row['id']); ?>">
-                        <input type="submit" value="Praise">
-                    </form>
+                    <!-- Praise/Unpraise Buttons -->
+                    <?php if ($row['praised'] === "Yes"): ?>
+                        <form action="" method="post" style="display:inline;">
+                            <input type="hidden" name="unpraise_id" value="<?php echo htmlspecialchars($row['id']); ?>">
+                            <input type="submit" value="Unpraise">
+                        </form>
                     <?php else: ?>
-                        <span>Praised</span>
+                        <form action="" method="post" style="display:inline;">
+                            <input type="hidden" name="praise_id" value="<?php echo htmlspecialchars($row['id']); ?>">
+                            <input type="submit" value="Praise">
+                        </form>
                     <?php endif; ?>
                 </td>
             </tr>
