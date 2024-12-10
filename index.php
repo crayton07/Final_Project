@@ -10,26 +10,24 @@
     <header>
         <section class="flex-container">
             <div class="box-header">
-                <img src="stretchedHeroSection.png">
+                <img src="stretchedHeroSection.png" alt="Hero Section">
             </div>
         </section>
-        <h1 style="font-size: 100px;">
-            Embark on the Dietrich Journey!!!
-        </h1>
+        <h1 style="font-size: 100px;">Embark on the Dietrich Journey!!!</h1>
     </header>
 
-    <section class="box box-long" style="justify-content: center; align-items: center; text-align: center; margin-left: 330px;">
+    <section class="box box-long" style="text-align: center; margin-left: auto; margin-right: auto;">
         <p style="font-size: 20px;">
             This curated collection of 55 meticulously edited images was created by Mr. Philip Gonzales, 
             and this website has been made to display them!
         </p>
     </section>
 
-
     <main>
         <section class="subheader">
             <h2>Notable Images</h2>
         </section>
+
         <section class="image-row">
             <div class="image-box">
                 <img src="Deets ate my dog.png" alt="Image 1">
@@ -45,7 +43,7 @@
             </div>
         </section>
 
-        <section class="box box-long2" style="width: 40%; height: 350px; border: none;">
+        <section class="box box-long2" style="width: 40%; height: 350px; margin: 0 auto;">
             <iframe 
                 src="edit_description_form.php" 
                 name="edit-description-frame" 
@@ -54,14 +52,7 @@
             </iframe>
         </section>
 
-        <br>
-        <br>
-        <br>
-        <br>
-        <h1>
-            File Names and Descriptions
-        </h1>
-
+        <h1>File Names and Descriptions</h1>
         <section class="box">
             <iframe 
                 src="Description.php" 
@@ -71,42 +62,29 @@
             </iframe>
         </section>
 
-<table>
-    <tr>
-        <td style="text-align: right">
-        <section class="box box-long2">
-            <h2>View the Full Catalog Here!!</h2>
-            <a href="http://localhost:8080/Final_Project/catalog.php">
-                <section class="box box-circle">
-                    <img src="arrow.png" style="height: 30px;">
-                </section>
-            </a>
+        <section class="flex-container">
+            <div class="box box-long2" style="text-align: center;">
+                <h2>View the Full Catalog Here!!</h2>
+                <a href="http://localhost:8080/Final_Project/catalog.php">
+                    <div class="box box-circle">
+                        <img src="arrow.png" style="height: 30px;" alt="View Catalog">
+                    </div>
+                </a>
+            </div>
+
+            <div class="box box-long2" style="text-align: center;">
+                <h2>Contribute to the Catalog!!</h2>
+                <a href="http://localhost:8080/Final_Project/add_form.php">
+                    <div class="box box-circle">
+                        <img src="arrow.png" style="height: 30px;" alt="Contribute">
+                    </div>
+                </a>
+            </div>
         </section>
-
-        </td>
-
-        <td>
-
-
-        <section class="box box-long2">
-            <h1>Contribute to the Catalog!!</h1>
-            <a href="http://localhost:8080/Final_Project/add_form.php">
-                <section class="box box-circle">
-                    <img src="arrow.png" style="height: 30px;">
-                </section>
-            </a>
-        </section>
-        </td>
-    </tr>
-    </table>
-
     </main>
 
     <footer>
-        <a href="http://localhost:8080/Final_Project/logout.php">
-            Log Out
-        </a>
+        <a href="http://localhost:8080/Final_Project/logout.php">Log Out</a>
     </footer>
-
 </body>
 </html>
