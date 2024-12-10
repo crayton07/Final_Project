@@ -101,13 +101,11 @@ if (!empty($_GET['search'])) {
                                     <td><?= htmlspecialchars($row['file_size']) ?></td>
                                     <td><?= htmlspecialchars($row['praised']) ?></td>
                                     <td>
-                                        <!-- Remove Button -->
                                         <form action="" method="POST" style="display:inline;">
                                             <input type="hidden" name="delete_id" value="<?= $row['id'] ?>">
                                             <input type="submit" value="Remove">
                                         </form>
 
-                                        <!-- Toggle Praise/Unpraise Button -->
                                         <form action="" method="POST" style="display:inline;">
                                             <input type="hidden" name="toggle_praise_id" value="<?= $row['id'] ?>">
                                             <input type="submit" value="<?= $row['praised'] === 'Yes' ? 'Unpraise' : 'Praise' ?>">

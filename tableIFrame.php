@@ -104,5 +104,9 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
             <?php endforeach; ?>
         </tbody>
     </table>
+    <form action="iframeAttempt.php" method="get" target="image-frame" style="display:inline;">
+    <input type="hidden" name="id" value="<?php echo mt_rand(1, 55); ?>">
+    <input type="submit" value="Feeling Lucky">
+</form>
 </body>
 </html>
