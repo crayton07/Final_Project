@@ -104,9 +104,22 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
             <?php endforeach; ?>
         </tbody>
     </table>
-    <form action="iframeAttempt.php" method="get" target="image-frame" style="display:inline;">
-    <input type="hidden" name="id" value="<?php echo mt_rand(1, 55); ?>">
-    <input type="submit" value="Feeling Lucky">
-</form>
+    <footer>
+    <form action="iframeAttempt.php" method="get" target="image-frame" style="display:inline;" onsubmit="setRandomId(this);">
+        <input type="hidden" name="id" id="random-id">
+        <input type="submit" value="Feeling Lucky?">
+    </form>
+
+<script>
+function setRandomId(form) {
+    // Generate a random number between 1 and 55
+    var randomNumber = Math.floor(Math.random() * 55) + 1;
+
+    // Set the random number as the value of the hidden input
+    form.querySelector('#random-id').value = randomNumber;
+}
+</script>
+    </footer>
+
 </body>
 </html>
