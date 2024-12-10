@@ -112,10 +112,8 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 
 <script>
 function setRandomId(form) {
-    // Generate a random number between 1 and 55
     var randomNumber = Math.floor(Math.random() * 55) + 1;
 
-    // Set the random number as the value of the hidden input
     form.querySelector('#random-id').value = randomNumber;
 }
 </script>
