@@ -93,7 +93,7 @@ p {
 
 .wiggle {
     display: inline-block;
-    animation: wiggle 1s ease-in-out infinite;
+    animation: wiggle .01s ease-in-out infinite;
 }
 
 .image-box img {
