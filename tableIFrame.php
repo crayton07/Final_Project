@@ -88,11 +88,21 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
                 <td><?php echo htmlspecialchars($row['file_size']); ?></td>
                 <td><?php echo htmlspecialchars($row['praised']); ?></td>
                 <td>
-                    <!-- View Image Button -->
-                    <form action="iframeAttempt.php" method="get" target="image-frame" style="display:inline;">
-                        <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
+                    <!-- View Button -->
+                    <form action="iframeAttempt.php" method="get" target="image-frame" style="display:inline;" onsubmit="scrollToIframe();">
+                        <input type="hidden" name="id" value="<?= htmlspecialchars($row['id']) ?>">
                         <input type="submit" value="View">
                     </form>
+                        <script>
+                        function scrollToIframe() {
+                            const iframe = window.parent.document.querySelector('iframe[name="image-frame"]');
+                            if (iframe) {
+                                iframe.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            } else {
+                                console.error("iframe not found in parent document.");
+                            }
+                        }
+                        </script>
                     <!-- Praise/Unpraise Buttons -->
                     <?php if ($row['praised'] === "Yes"): ?>
                         <form action="" method="post" style="display:inline;">

@@ -10,7 +10,7 @@
     <header>
         <section class="flex-container">
             <div class="box-header">
-                <img src="stretchedHeroSection.png" alt="Hero Section">
+            <img src="stretchedHeroSection.png" alt="Hero Section" class="wiggle">
             </div>
         </section>
         <h1 style="font-size: 100px;">Embark on the Dietrich Journey!!!</h1>

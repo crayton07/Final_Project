@@ -102,10 +102,16 @@ if (!empty($_GET['search'])) {
                                         <td><?= htmlspecialchars($row['praised']) ?></td>
                                         <td>
                                             <!-- View Button -->
-                                            <form action="iframeAttempt.php" method="get" target="image-frame" style="display:inline;">
+                                            <form action="iframeAttempt.php" method="get" target="image-frame" style="display:inline;" onsubmit="scrollToIframe();">
                                                 <input type="hidden" name="id" value="<?= htmlspecialchars($row['id']) ?>">
                                                 <input type="submit" value="View">
                                             </form>
+                                                <script>
+                                                function scrollToIframe() {
+                                                    const iframe = document.querySelector('iframe[name="image-frame"]');
+                                                    iframe.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                                }
+                                                </script>
                                             <!-- Remove Button -->
                                             <form action="" method="POST" style="display:inline;">
                                                 <input type="hidden" name="delete_id" value="<?= $row['id'] ?>">
