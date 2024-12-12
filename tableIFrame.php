@@ -72,9 +72,6 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
     <section class="box box-long2" style="width: 40%; height: 65px; margin: 0 auto;">
             <h2 style="text-align: center; font-size: 50px;">Catalog Items</h2>
     </section>
-    
-    
-    
     <table>
         <thead>
             <tr>

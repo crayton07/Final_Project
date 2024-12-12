@@ -67,8 +67,12 @@ if (!empty($_GET['search'])) {
 </head>
 <body>
     <div class="hero-section">
-        <h1 class="hero-name">It's a Journey</h1>
-        <p class="hero-subname">"The Professor Dietrich Experience!!!"</p>
+    <section class="box box-long2" style="width: 90%; height: 100px; margin: 0 auto;">
+            <h2 style="text-align: center; font-size: 50px;">It's a Journey!!!</h2>
+            <p class="hero-subname">"The Professor Dietrich Experience"</p>
+    </section>
+    <br> <br>
+
 
         <!-- Search Section -->
         <div class="hero-search">
