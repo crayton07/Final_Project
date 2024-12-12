@@ -18,10 +18,10 @@ if (!is_logged_in()) {
     <link rel="stylesheet" href="styles.css">
 </head>
 <body style=" background-color: #333;">
-    <section class="box box-long2" style="width: 400px; height: 300px; margin: auto;">
+    <section class="box box-long2" style="width: 400px; height: 300px; margin-right: auto; margin-left: auto;">
         <form action="edit_description.php" method="POST">
             <label for="file_name">
-                <p style="font-size: 20px;">
+                <p style="font-size: 20px; margin-right: auto; margin-left: auto;">
                     Select an Image:
                 </p>
             </label>
