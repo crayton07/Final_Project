@@ -72,7 +72,7 @@ if (!empty($_GET['search'])) {
 
         <!-- Search Section -->
         <div class="hero-search">
-            <h2>Search for Images to Remove</h2>
+            <h2>Search For Your Soul Here</h2>
             <form action="" method="GET" class="search-form">
                 <label for="search">Search by name:</label>
                 <input type="text" id="search" name="search" required>
