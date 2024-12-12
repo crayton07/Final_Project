@@ -43,18 +43,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'file_name' => $file_name,
             ]);
             // Success message
-            echo renderResponsePage("Success!", "The description for <em>{$file_name}</em> was updated successfully.", "index.php");
+            echo renderResponsePage("Success!", "The description for <em>{$file_name}</em> was updated successfully.", "edit_description_form.php");
         } catch (PDOException $e) {
             // Error message
-            echo renderResponsePage("Error!", "Failed to update the description. Please try again.", "index.php");
+            echo renderResponsePage("Error!", "Failed to update the description. Please try again.", "edit_description_form.php");
         }
     } else {
         // Invalid input message
-        echo renderResponsePage("Invalid Input!", "The form inputs were invalid. Please try again.", "index.php");
+        echo renderResponsePage("Invalid Input!", "The form inputs were invalid. Please try again.", "edit_description_form.php");
     }
 } else {
     // Invalid request method message
-    echo renderResponsePage("Invalid Request!", "This action can only be performed through the form submission.", "index.php");
+    echo renderResponsePage("Invalid Request!", "This action can only be performed through the form submission.", "edit_description_form.php");
 }
 
 // Function to render a styled response page
