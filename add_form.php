@@ -20,11 +20,20 @@ if (!is_logged_in()) {
 <body>
     <header>
         <h1 style="text-align: center;">
-            Add to Pictures and Blobs
+            <marquee behavior="scroll" direction="left" scrollamount="20">
+                Add to Pictures and Blobs  &nbsp; &nbsp; | &nbsp; &nbsp;
+                Add to Pictures and Blobs &nbsp; &nbsp; | &nbsp; &nbsp;
+                Add to Pictures and Blobs &nbsp; &nbsp; | &nbsp; &nbsp;
+                Add to Pictures and Blobs  &nbsp; &nbsp; | &nbsp; &nbsp;
+                Add to Pictures and Blobs &nbsp; &nbsp; | &nbsp; &nbsp;
+                Add to Pictures and Blobs &nbsp; &nbsp;
+            </marquee>
         </h1>
     </header>
 
-    <section class="container" style="width: 200px;">
+
+
+    <section class="container" style="width: 200px; margin-top: 150px; margin-bottom: auto;">
         <form action="add.php" method="POST" enctype="multipart/form-data" style="flex-direction: column; align-items: center;">
             <label for="file_name">File Name:</label>
             <input type="text" id="file_name" name="file_name" required>
