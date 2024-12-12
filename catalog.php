@@ -93,27 +93,34 @@ if (!empty($_GET['search'])) {
                                     <th>Actions</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <?php foreach ($search_results as $row): ?>
-                                <tr>
-                                    <td><?= htmlspecialchars($row['id']) ?></td>
-                                    <td><?= htmlspecialchars($row['file_name']) ?></td>
-                                    <td><?= htmlspecialchars($row['file_size']) ?></td>
-                                    <td><?= htmlspecialchars($row['praised']) ?></td>
-                                    <td>
-                                        <form action="" method="POST" style="display:inline;">
-                                            <input type="hidden" name="delete_id" value="<?= $row['id'] ?>">
-                                            <input type="submit" value="Remove">
-                                        </form>
+                                <tbody>
+                                    <?php foreach ($search_results as $row): ?>
+                                    <tr>
+                                        <td><?= htmlspecialchars($row['id']) ?></td>
+                                        <td><?= htmlspecialchars($row['file_name']) ?></td>
+                                        <td><?= htmlspecialchars($row['file_size']) ?></td>
+                                        <td><?= htmlspecialchars($row['praised']) ?></td>
+                                        <td>
+                                            <!-- View Button -->
+                                            <form action="iframeAttempt.php" method="get" target="image-frame" style="display:inline;">
+                                                <input type="hidden" name="id" value="<?= htmlspecialchars($row['id']) ?>">
+                                                <input type="submit" value="View">
+                                            </form>
+                                            <!-- Remove Button -->
+                                            <form action="" method="POST" style="display:inline;">
+                                                <input type="hidden" name="delete_id" value="<?= $row['id'] ?>">
+                                                <input type="submit" value="Remove" onclick="return confirm('Are you sure you want to delete this image?');">
+                                            </form>
+                                            <!-- Toggle Praise Button -->
+                                            <form action="" method="POST" style="display:inline;">
+                                                <input type="hidden" name="toggle_praise_id" value="<?= $row['id'] ?>">
+                                                <input type="submit" value="<?= $row['praised'] === 'Yes' ? 'Unpraise' : 'Praise' ?>">
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
 
-                                        <form action="" method="POST" style="display:inline;">
-                                            <input type="hidden" name="toggle_praise_id" value="<?= $row['id'] ?>">
-                                            <input type="submit" value="<?= $row['praised'] === 'Yes' ? 'Unpraise' : 'Praise' ?>">
-                                        </form>
-                                    </td>
-                                </tr>
-                                <?php endforeach; ?>
-                            </tbody>
                         </table>
                     <?php else: ?>
                         <p>No pictures found matching your search.</p>

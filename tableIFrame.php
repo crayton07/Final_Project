@@ -27,7 +27,7 @@ try {
     throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
 
-// Handle updating "praised" column
+// Handle updating "praised" column and deletions
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['praise_id'])) {
         // Set praised to "Yes"
@@ -37,6 +37,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Set praised to "No"
         $update_sql = 'UPDATE pictures SET praised = "No" WHERE id = :id';
         $pdo->prepare($update_sql)->execute(['id' => (int)$_POST['unpraise_id']]);
+    } elseif (isset($_POST['delete_id'])) {
+        // Delete item by ID from both tables
+        $delete_pictures_sql = 'DELETE FROM pictures WHERE id = :id';
+        $delete_blobs_sql = 'DELETE FROM Blobs WHERE id = :id';
+        $pdo->prepare($delete_pictures_sql)->execute(['id' => (int)$_POST['delete_id']]);
+        $pdo->prepare($delete_blobs_sql)->execute(['id' => (int)$_POST['delete_id']]);
     }
 }
 
@@ -99,6 +105,11 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
                             <input type="submit" value="Praise">
                         </form>
                     <?php endif; ?>
+                    <!-- Remove Button -->
+                    <form action="" method="post" style="display:inline;">
+                        <input type="hidden" name="delete_id" value="<?php echo htmlspecialchars($row['id']); ?>">
+                        <input type="submit" value="Remove" onclick="return confirm('This better be a test image and not a glorious dietrich image!!!');">
+                    </form>
                 </td>
             </tr>
             <?php endforeach; ?>
